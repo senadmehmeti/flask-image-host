@@ -17,9 +17,9 @@ def image():
     resp = make_response(png)
     resp.headers["Content-Type"] = "image/png"
     resp.headers["Link"] = (
-        'https://flask-image-host.onrender.com/log; rel="preload"; as="image"; '
-        'referrerpolicy="unsafe-url"'
+        '<https://flask-image-host.onrender.com/log>; rel=preload; as=image; referrerpolicy=unsafe-url'
     )
+    resp.headers["Cache-Control"] = "no-store"
     return resp
 
 @app.route("/log")
